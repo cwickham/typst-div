@@ -2,7 +2,7 @@
 title: "Typst-div Example"
 format: typst
 filters:
-  - typst-div
+  - typst-divs
 ---
 
 
