@@ -1,0 +1,54 @@
+---
+title: "Typst-div Example"
+format: typst
+filters:
+  - typst-div
+---
+
+
+```{=typst}
+#let fun1(content)={
+  set page(fill: red)
+  content
+}
+
+#let fun2(fill: blue, content)={
+  set page(fill: fill)
+  content
+}
+```
+
+::: {.typst_page fill='rgb("#39729E")'}
+
+Use with Typst's built in functions. This content gets passed in to `page()`.
+
+::: 
+
+```{=typst}
+#let blue_page(content)={
+  set page(fill: rgb("#39729E"))
+  set text(fill: white)
+  content
+}
+```
+
+::: {.typst_blue_page}
+
+Or write your own functions. This content gets passed along to `blue_page()` which is defined in a raw Typst block above.
+
+:::
+
+```{=typst}
+#let two_columns(content)={
+  // Positional arguments can't be passed as div attributes so need to wrap ourselves.
+  columns(2, content) 
+}
+```
+
+## Full width heading that is quite long
+
+::: {.typst_two_columns }
+
+{{< lipsum 4 >}}
+
+:::
